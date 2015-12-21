@@ -1,6 +1,6 @@
 FROM mongo
 
-COPY ./db/skel /
+COPY ./skel /
 
 RUN chmod +x init.sh
 

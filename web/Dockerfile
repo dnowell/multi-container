@@ -1,6 +1,6 @@
 FROM nginx
 
-COPY ./web/skel /
+COPY ./skel /
 
 RUN apt-get update
     
