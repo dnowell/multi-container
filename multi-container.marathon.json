@@ -1,5 +1,8 @@
 {
     "id": "/dnowell-multi-container",
+    "groups": [
+	{
+	"id": "/dnowell-multi-container/web",
     "instances": 2,
     "cpus": 0.25,
     "mem": 32,
@@ -29,6 +32,12 @@
         "minimumHealthCapacity": 0.5,
         "maximumOverCapacity": 0.5
     },
+  },
+    {
+    "id": "/dnowell-multi-container/db",
+    "instances": 2,
+    "cpus": 0.25,
+    "mem": 32,
 
     "container": {
         "type": "DOCKER",
@@ -50,7 +59,7 @@
         "minimumHealthCapacity": 0.5,
         "maximumOverCapacity": 0.5
     }
-
-
+  }
+]
 
 }
