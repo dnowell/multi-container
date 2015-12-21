@@ -13,6 +13,8 @@ echo ${BUILD_NUMBER} > multi-container/db/skel/build
 
 echo ${BUILD_NUMBER} > multi-container/web/skel/build
 
+echo 'PASSWORD=1234' > multi-container/web/skel/password
+
 cd multi-container
 
 docker build -t docker-pilot.dsc.umich.edu:31111/multi-container-db db/
@@ -37,5 +39,5 @@ sed -i -e "s|docker-pilot.dsc.umich.edu:31111/multi-container-db:latest|docker-p
 
 sed -i -e "s|docker-pilot.dsc.umich.edu:31111/multi-container-web:latest|docker-pilot.dsc.umich.edu:31111/multi-container-web:$BUILD_NUMBER|g" multi-container/multi-container.marathon.json
 
-curl -X PUT -H "Accept: application/json" -H "Content-Type: application/json" http://docker-pilot.dsc.umich.edu:8080/v2/apps/multi-container -d @multi-container/multi-container.marathon.json
+curl -X PUT -H "Accept: application/json" -H "Content-Type: application/json" http://docker-pilot.dsc.umich.edu:8080/v2/groups/multi-container -d @multi-container/multi-container.marathon.json
 
