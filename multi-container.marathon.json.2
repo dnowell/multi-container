@@ -1,0 +1,74 @@
+{
+  "id": "/",
+  "apps": [],
+  "groups": [
+    {
+      "id": "/dnowell-multi-container",
+      "apps": [
+        {
+          "id": "/dnowell-multi-container/db",
+          "instances": 1,
+          "cpus": 0.5,
+          "mem": 128,
+          "backoffSeconds": 1,
+          "backoffFactor": 1.15,
+          "maxLaunchDelaySeconds": 3600,
+          "container": {
+            "type": "DOCKER",
+            "volumes": [],
+            "docker": {
+              "image": "docker-pilot.dsc.umich.edu:31111/multi-container-db:latest",
+              "network": "BRIDGE",
+              "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 0,
+                    "protocol": "tcp"
+                }
+              ]
+            }
+          },
+          "healthChecks": [
+            {
+              "protocol": "HTTP"
+            }
+          ],
+          "dependencies": [],
+          "upgradeStrategy": {
+            "minimumHealthCapacity": 0.5,
+            "maximumOverCapacity": 0
+          }
+        },
+        {
+          "id": "/dnowell-multi-container/web",
+          "instances": 2,
+          "cpus": 0.25,
+          "mem": 32,
+          "backoffSeconds": 1,
+          "backoffFactor": 1.15,
+          "maxLaunchDelaySeconds": 3600,
+          "container": {
+            "type": "DOCKER",
+            "docker": {
+              "image": "docker-pilot.dsc.umich.edu:31111/multi-container-web:latest",
+              "network": "BRIDGE",
+              "portMappings": [
+                {
+                    "containerPort": 27017,
+                    "hostPort": 0,
+                    "protocol": "tcp"
+                }
+            ]
+            }
+          },
+          "healthChecks": [],
+          "dependencies": [],
+          "upgradeStrategy": {
+            "minimumHealthCapacity": 0.5,
+            "maximumOverCapacity": 0
+          }
+        }
+]
+}
+      ]
+}
