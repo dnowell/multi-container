@@ -28,7 +28,7 @@
     "upgradeStrategy": {
         "minimumHealthCapacity": 0.5,
         "maximumOverCapacity": 0.5
-    }
+    },
 
     "container": {
         "type": "DOCKER",
