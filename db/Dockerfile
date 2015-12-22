@@ -4,7 +4,7 @@ COPY ./skel /
 
 RUN apt-get update
 
-RUN apt-get install procps
+RUN apt-get install -y procps
 
 #RUN chmod +x init.sh
 
