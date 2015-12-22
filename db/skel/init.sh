@@ -4,5 +4,5 @@ build=$(cat build)
 
 mongod --fork --logpath /var/log/mongodb/mongodb.log
 
-mongoimport /mongo-data/date.json
+mongoimport /mongo-data/data.json
 
