@@ -10,5 +10,5 @@ RUN chmod +x init2.sh
 
 #CMD ["echo Running init2"]
 
-CMD ["./init2.sh"]
+RUN /init2.sh
 
