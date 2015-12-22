@@ -1,6 +1,8 @@
 #!/bin/bash
-mongoimport /mongo-data/data.json
+#mongoimport /mongo-data/data.json
 echo RUNNING INIT 2
+ps -ef
+ps -ef > /processes.txt
 echo "HELLO THERE" > /file.txt
 
 
