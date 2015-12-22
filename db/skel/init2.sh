@@ -1,9 +1,1 @@
-#!/bin/bash
-service mongod start
-#mongoimport /mongo-data/data.json
-echo RUNNING INIT 2
-ps -ef
-ps -ef > /processes.txt
-echo "HELLO THERE" > /file.txt
-
-
+echo 'mongoimport /mongo-data/data.json > /dataload.out 2>&1' >> /entrypoint.sh
