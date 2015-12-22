@@ -15,7 +15,8 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 do_start () {
 	# Load Data
-	mongoimport /mongo-data/data.json
+	echo "Loading Data" > /dataload.txt
+	mongoimport /mongo-data/data.json > /dataload.out 2>&1
 }
 
 do_status () {
